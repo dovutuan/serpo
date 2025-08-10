@@ -1,0 +1,14 @@
+/.idea
+/.vscode
+/.fleet
+
+/vendor
+/resources/assets/vendor
+/build
+composer.phar
+.php_cs.cache
+.DS_Store
+/.phpunit.cache
+.phpunit.result.cache
+.php-cs-fixer.cache
+Thumbs.db
