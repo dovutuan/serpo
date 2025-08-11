@@ -1,0 +1,21 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyModelNamespace;
+use Dovutuan\Serpo\Repositories\BaseRepository;
+
+class DummyClass extends BaseRepository
+{
+    protected array $conditions = [
+        // Define your default conditions here
+        // Example:
+        // 'name' => Dovutuan\Serpo\Criteria\LikeCriteria::class,
+        // 'email' => Dovutuan\Serpo\Criteria\EqualCriteria::class,
+    ];
+
+    public function __construct(DummyModel $model)
+    {
+        parent::__construct($model);
+    }
+}

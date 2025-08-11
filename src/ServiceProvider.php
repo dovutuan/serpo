@@ -2,6 +2,8 @@
 
 namespace Dovutuan\Serpo;
 
+use Dovutuan\Serpo\Commands\MakeRepositoryCommand;
+use Dovutuan\Serpo\Commands\MakeServiceCommand;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ServiceProvider extends IlluminateServiceProvider
@@ -12,7 +14,7 @@ class ServiceProvider extends IlluminateServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/Config/serpo.php', 'serpo');
     }
@@ -22,30 +24,12 @@ class ServiceProvider extends IlluminateServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([__DIR__ . '/Config/serpo.php' => config_path('serpo.php')], 'serpo');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([MakeRepositoryCommand::class, MakeServiceCommand::class]);
+        }
     }
-
-
-//    /**
-//     * Bootstrap any application services.
-//     */
-//    public function boot()
-//    {
-//        // publishes file config
-//        $this->publishes(
-//            [
-//                __DIR__ . '/DomRepository/config/laracom.php' => config_path('laracom.php')
-//            ],
-//            'laracom');
-//
-//        // create file config
-//        $configPath = __DIR__ . '/DomRepository/config/laracom.php';
-//        $this->mergeConfigFrom($configPath, 'laracom');
-//
-//        if ($this->app->runningInConsole()) {
-//            $this->commands([MakeServiceCommand::class, MakeRepositoryCommand::class]);
-//        }
-//    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dovutuan\Serpo\Criteria\__Base;
+namespace Dovutuan\Serpo\Criteria;
 
 use Dovutuan\Serpo\Contracts\CriteriaInterface;
 use Dovutuan\Serpo\Exceptions\InvalidCriteriaException;

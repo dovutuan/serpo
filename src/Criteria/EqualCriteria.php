@@ -2,7 +2,6 @@
 
 namespace Dovutuan\Serpo\Criteria;
 
-use Dovutuan\Serpo\Criteria\__Base\BaseCriteria;
 use Illuminate\Database\Eloquent\Builder;
 
 class EqualCriteria extends BaseCriteria
