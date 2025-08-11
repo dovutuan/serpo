@@ -127,7 +127,7 @@ class MakeServiceCommand extends GeneratorCommand
     {
         return [
             ['repository', 'r', InputOption::VALUE_OPTIONAL, 'The repository that the service depends on'],
-            ['force', null, InputOption::VALUE_NONE, 'Create the class even if the service already exists'],
+            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the service already exists'],
         ];
     }
 }

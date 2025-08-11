@@ -2,6 +2,7 @@
 
 namespace Dovutuan\Serpo;
 
+use Dovutuan\Serpo\Commands\MakeCriteriaCommand;
 use Dovutuan\Serpo\Commands\MakeRepositoryCommand;
 use Dovutuan\Serpo\Commands\MakeServiceCommand;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
@@ -29,7 +30,11 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->publishes([__DIR__ . '/Config/serpo.php' => config_path('serpo.php')], 'serpo');
 
         if ($this->app->runningInConsole()) {
-            $this->commands([MakeRepositoryCommand::class, MakeServiceCommand::class]);
+            $this->commands([
+                MakeRepositoryCommand::class,
+                MakeServiceCommand::class,
+                MakeCriteriaCommand::class
+            ]);
         }
     }
 }

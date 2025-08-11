@@ -12,8 +12,8 @@ class EqualCriteria extends BaseCriteria
 
         $query->when($this->value, function (Builder $query) use ($columns) {
             $query->where(function (Builder $query) use ($columns) {
-                foreach ($columns as $coumn) {
-                    $query->where(column: $coumn, operator: '=', value: $this->value, boolean: $this->boolean);
+                foreach ($columns as $column) {
+                    $query->where(column: $column, operator: '=', value: $this->value, boolean: $this->boolean);
                 }
             });
         });

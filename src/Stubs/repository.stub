@@ -10,8 +10,23 @@ class DummyClass extends BaseRepository
     protected array $conditions = [
         // Define your default conditions here
         // Example:
-        // 'name' => Dovutuan\Serpo\Criteria\LikeCriteria::class,
-        // 'email' => Dovutuan\Serpo\Criteria\EqualCriteria::class,
+        //'email' => [
+        //    'class' => \Dovutuan\Serpo\Criteria\EqualCriteria::class
+        //],
+        //'name' => [
+        //    'class' => \Dovutuan\Serpo\Criteria\LikeCriteria::class,
+        //    'columns' => 'name'
+        //],
+        //'keyword' => [
+        //    'class' => \Dovutuan\Serpo\Criteria\LikeCriteria::class,
+        //    'columns' => 'name|email',
+        //    'operator' => 'or',
+        //],
+        //'date' => [
+        //    'class' => \Dovutuan\Serpo\Criteria\DateCriteria::class,
+        //    'columns' => 'start_date|end_date',
+        //    'operator' => 'and',
+        //],
     ];
 
     public function __construct(DummyModel $model)

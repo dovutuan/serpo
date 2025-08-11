@@ -85,7 +85,7 @@ class MakeRepositoryCommand extends GeneratorCommand
         return [
             ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the repository applies to'],
             ['service', 's', InputOption::VALUE_NONE, 'Create corresponding service class'],
-            ['force', null, InputOption::VALUE_NONE, 'Create the class even if it already exists'],
+            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if it already exists'],
         ];
     }
 
@@ -112,17 +112,12 @@ class MakeRepositoryCommand extends GeneratorCommand
     protected function createService(): void
     {
         $name = str_replace('Repository', 'Service', $this->argument('name'));
-        $model = $this->option('model');
-
         $options = [
             '--repository' => $this->argument('name'),
-            '--force' => $this->option('force')
+            '--force' => $this->option('force'),
+            'name' => $name
         ];
 
-        if ($model) {
-            $options['--model'] = $model;
-        }
-
-        $this->call('make:service', ['name' => $name] + $options);
+        $this->call('make:service', $options);
     }
 }
