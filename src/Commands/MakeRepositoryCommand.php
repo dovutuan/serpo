@@ -42,7 +42,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      *
-     * @param  string  $rootNamespace
+     * @param string $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace): string
@@ -57,8 +57,9 @@ class MakeRepositoryCommand extends GeneratorCommand
     /**
      * Build the class with the given name, replacing model placeholders.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
+     * @throws FileNotFoundException
      */
     protected function buildClass($name): string
     {

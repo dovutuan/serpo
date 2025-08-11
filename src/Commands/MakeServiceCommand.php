@@ -3,6 +3,7 @@
 namespace Dovutuan\Serpo\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -42,7 +43,7 @@ class MakeServiceCommand extends GeneratorCommand
     /**
      * Get the default namespace for the service class.
      *
-     * @param  string  $rootNamespace
+     * @param string $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace): string
@@ -57,10 +58,10 @@ class MakeServiceCommand extends GeneratorCommand
     /**
      * Get the default namespace for the repository class.
      *
-     * @param  string  $rootNamespace
+     * @param string $rootNamespace
      * @return string
      */
-    protected function getRepositoryNamespace($rootNamespace): string
+    protected function getRepositoryNamespace(string $rootNamespace): string
     {
         $configNamespace = config('serpo.repository.namespace');
 
@@ -72,8 +73,9 @@ class MakeServiceCommand extends GeneratorCommand
     /**
      * Build the service class with the given name, replacing repository placeholders.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
+     * @throws FileNotFoundException
      */
     protected function buildClass($name): string
     {
@@ -93,10 +95,10 @@ class MakeServiceCommand extends GeneratorCommand
     /**
      * Determine the fully-qualified repository class name.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
-    protected function qualifyRepository($name): string
+    protected function qualifyRepository(string $name): string
     {
         $rootNamespace = $this->laravel->getNamespace();
         $repository = $this->option('repository');
