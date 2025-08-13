@@ -8,13 +8,14 @@ use Dovutuan\Serpo\Traits\ValidateCriteria;
 
 abstract class BaseCriteria implements CriteriaInterface
 {
-    use ValidateCriteria, ParseColumnCriteria;
+    use ValidateCriteria;
+    use ParseColumnCriteria;
 
     public function __construct(
         protected string|array $columns,
-        protected string|int   $value,
-        protected string       $boolean = 'and')
-    {
+        protected string|int $value,
+        protected string $boolean = 'and'
+    ) {
         $this->validateColumns();
     }
 }

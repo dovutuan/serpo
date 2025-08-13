@@ -4,5 +4,4 @@ namespace Dovutuan\Serpo\Exceptions;
 
 class ServiceException
 {
-
 }
